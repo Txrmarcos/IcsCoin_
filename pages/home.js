@@ -29,13 +29,13 @@ export default function Home() {
         />
       </div>
       <div className="bg-[#3E7543] bg-opacity-60 w-4/5 h-32 rounded-3xl flex justify-evenly items-center text-center">
-        <Link className="bg-black w-52 " href="/buy">
+        <Link className="bg-white bg-opacity-5 w-52 rounded-lg " href="/buy">
           Compre Isquisco
         </Link>
-        <Link className="bg-black w-52" href="/transfer">
+        <Link className="bg-white bg-opacity-5 w-52 rounded-lg" href="/transfer">
           Transfira Isquisco
         </Link>
-        <Link className="bg-black w-52" href="/login">
+        <Link className="bg-white bg-opacity-5 w-52 rounded-lg" href="/login">
           Veja sua carteira
         </Link>
       </div>
