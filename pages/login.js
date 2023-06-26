@@ -10,7 +10,7 @@ export default function login() {
       <h1 className="text-white text-4xl bg-[#102328] bg-opacity-40 w-1/3 text-center rounded-md mb-4">
         SOBRE A ISQUISCO
       </h1>
-      <div className="bg-[#102328] bg-opacity-60 w-4/5 h-2/3 rounded-3xl flex justify-around items-center mb-20">
+      <div className="bg-[#102328] bg-opacity-60 w-4/5 h-2/4 rounded-3xl flex justify-around items-center mb-20">
         <div className="bg-white bg-opacity-10 w-2/5 h-3/4 flex justify-evenly flex-col items-center rounded-lg">
           <Image
             className="rounded-full bg-white"
@@ -26,46 +26,60 @@ export default function login() {
             <p className="mx-10">0x03123435f2c12aw4</p>
             <p className="mx-10">{coin} ICS</p>
           </div>
-          <div className=" flex flex-col items-center justify-evenly mb-20  h-2/5 overflow-y-auto">
-            <ul className="list-none  flex">
-              <li className="m-4 ">
+          <div className=" flex flex-col items-center justify-evenly mb-10  h-3/5 overflow-y-auto">
+            <ul className="list-none mt-2  flex">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
-                <a>transfer 1</a>
-              </li>
-            </ul>
-            <ul className="list-none  flex">
-              <li className="m-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="m-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="m-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
             </ul>
-            <ul className="list-none  flex">
-              <li className="m-4 ">
+            <ul className="list-none mt-2  flex">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
-              <li className="m-4 ">
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+            </ul>
+            <ul className="list-none mt-2  flex">
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+            </ul>
+            <ul className="list-none mt-2  flex">
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
+                <a>transfer 1</a>
+              </li>
+              <li className="mx-4 ">
                 <a>transfer 1</a>
               </li>
             </ul>
