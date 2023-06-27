@@ -25,7 +25,7 @@ contract ICS {
         return _symbol;
     }
 
-    function decimals() public view  returns(uint8){
+    function decimals() public pure returns(uint8){
         return 1;
     }
 
@@ -49,6 +49,7 @@ contract ICS {
         balance[_to] += _value;
 
         emit Transfer(_from, _to,_value);
+        return true;
 
         }
 
@@ -59,13 +60,16 @@ contract ICS {
         emit Transfer(msg.sender, owner, amount);
 
     }
-    function approve(address _spender, uint256 _value) public  returns (bool){
-
+    function approve(address _spender, uint256 _value) public pure returns (bool){
+        _spender;
+        _value;
         return true;
     }
 
 
-    function allowance(address _owner, address _spender) public view  returns (uint256 remaining){
+    function allowance(address _owner, address _spender) public pure  returns (uint256 remaining){
+        _owner;
+        _spender;
         return 0;
     }
 
