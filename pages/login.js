@@ -1,9 +1,28 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ethers } from "ethers";
+import { getBalance } from "./services/ICS.js"
 
 export default function login() {
   const [coin, setCoin] = useState(0);
+  const [account, setAccount] = useState("")  
+
+  useEffect(()=>{
+    connect()
+    async function connect(){
+      const provider = new ethers.BrowserProvider(window.ethereum)
+      const account = await provider.send("eth_requestAccounts",[])
+      const balance = await getBalance(provider)
+      setCoin(balance.toString())
+      console.log(balance.toString())
+      setAccount(account[0]);
+      console.log(account[0])
+
+
+    }
+
+  },[])
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen bg-[url('./jungleN.jpg')] font-common-pixel text-black ">
@@ -18,13 +37,13 @@ export default function login() {
             width={200}
             height={200}
           ></Image>
-          <h1 className="text-2xl">Carteira</h1>
+          <h1 className="text-xl">{account}</h1>
         </div>
 
         <div className="flex flex-col w-2/5 h-3/5 justify-between items-center bg bg-white bg-opacity-10 rounded-xl shadow-lg">
-          <div className="w-full  flex justify-between items-center mt-4">
-            <p className="mx-10">0x03123435f2c12aw4</p>
-            <p className="mx-10">{coin} ICS</p>
+          <div className="w-full  flex justify-between items-center h-3/5  mt-4">
+            <p className="ml-4">{account}</p>
+            <p className="mx-10 h-2/5 w-16  break-words">{coin} </p>
           </div>
           <div className=" flex flex-col items-center justify-evenly mb-10  h-3/5 overflow-y-auto">
             <ul className="list-none mt-2  flex">

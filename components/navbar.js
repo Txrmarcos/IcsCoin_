@@ -1,9 +1,23 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {getBalance} from "../pages/services/ICS.js";
+import {ethers} from "ethers"
 
 export default function NavBar() {
   const [saldo, setSaldo] = useState(0);
+
+  useEffect(()=>{
+    saldo();
+    async function saldo(){
+      
+      const provedor = new ethers.BrowserProvider(window.ethereum);
+      const icsCoin = await getBalance(provedor);
+      setSaldo(icsCoin)
+      
+
+    }
+  })
 
   const router = useRouter();
 
@@ -21,7 +35,7 @@ export default function NavBar() {
         </a>
       </div>
       <div className="  w-72 h-16 mr-8 flex justify-around items-center rounded-md">
-        <div className="flex justify-evenly items-center w-28 h-16 bg-white bg-opacity-25 rounded-md">
+        <div className="flex justify-evenly items-center w-72 h-16 bg-white bg-opacity-25 rounded-md">
           <h1 className="text-2xl">{saldo}</h1>
           <Image
             className="rounded-full"

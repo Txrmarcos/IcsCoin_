@@ -11,7 +11,7 @@ const prepare= (provider) =>{
     return [contrato, enderecoContrato, contratoABI];
 }
 
-export  async function TransferWeb3(provider, valor, address){
+export async function TransferWeb3(provider, valor, address){
 
     const [contrato] = prepare(provider);
 
@@ -33,7 +33,22 @@ export  async function TransferWeb3(provider, valor, address){
 
 }
 
+export async function getBalance(provider){
 
+    const[contrato] = prepare(provider);
+
+    const assing = await provider.getSigner(); //minha carteira
+
+    const assinarContrato = contrato.connect(assing)
+
+    try{
+        const balancaT = await assinarContrato.balanceOf(assing)
+        return balancaT.toString()
+    }catch(e){
+        console.log(e);
+        return "erro macaco"
+    }
+}
 
 
 
