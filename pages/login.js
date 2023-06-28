@@ -29,7 +29,7 @@ export default function login() {
       <h1 className="text-white text-4xl bg-[#102328] bg-opacity-40 w-1/3 text-center rounded-md mb-4">
         SOBRE A ISQUISCO
       </h1>
-      <div className="bg-[#102328] bg-opacity-60 w-4/5 h-2/4 rounded-3xl flex justify-around items-center mb-20">
+      <div className="bg-black bg-opacity-60 w-4/5 h-2/4 rounded-3xl flex justify-around items-center mb-20">
         <div className="bg-white bg-opacity-10 w-2/5 h-3/4 flex justify-evenly flex-col items-center rounded-lg">
           <Image
             className="rounded-full bg-white"
