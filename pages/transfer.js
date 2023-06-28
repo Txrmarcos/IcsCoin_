@@ -28,8 +28,8 @@ export default function Transfer() {
     async function connect() {
       const provedor = new ethers.BrowserProvider(window.ethereum);
       const accounts = await provedor.send("eth_requestAccounts", []);
-
       const balances = await provedor.getBalance(accounts[0]);
+
       setSaldo(balances.toString());
       console.log(accounts[0]);
       

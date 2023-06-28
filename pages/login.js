@@ -2,27 +2,28 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ethers } from "ethers";
-import { getBalance } from "./services/ICS.js"
+import { getBalance } from "./services/ICS.js";
 
 export default function login() {
   const [coin, setCoin] = useState(0);
-  const [account, setAccount] = useState("")  
+  const [account, setAccount] = useState("");
+  const [eth, setEth] = useState("");
+  
 
-  useEffect(()=>{
-    connect()
-    async function connect(){
-      const provider = new ethers.BrowserProvider(window.ethereum)
-      const account = await provider.send("eth_requestAccounts",[])
-      const balance = await getBalance(provider)
-      setCoin(balance.toString())
-      console.log(balance.toString())
+  useEffect(() => {
+    connect();
+    async function connect() {
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const account = await provider.send("eth_requestAccounts", []);
+      const balance = await getBalance(provider);
+      const balances = await provider.getBalance(account[0])
+      setCoin(balance.toString());
+      console.log(balance.toString());
+      setEth(ethers.formatEther(balances.toString()));
       setAccount(account[0]);
-      console.log(account[0])
-
-
+      console.log(account[0]);
     }
-
-  },[])
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen bg-[url('./jungleN.jpg')] font-common-pixel text-black ">
@@ -41,67 +42,22 @@ export default function login() {
         </div>
 
         <div className="flex flex-col w-2/5 h-3/5 justify-between items-center bg bg-white bg-opacity-10 rounded-xl shadow-lg">
-          <div className="w-full  flex justify-between items-center h-3/5  mt-4">
+          <div className="w-full  flex justify-center items-center h-3/5 mt-4">
             <p className="ml-4">{account}</p>
-            <p className="mx-10 h-2/5 w-16  break-words">{coin} </p>
           </div>
-          <div className=" flex flex-col items-center justify-evenly mb-10  h-3/5 overflow-y-auto">
-            <ul className="list-none mt-2  flex">
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-            </ul>
-            <ul className="list-none mt-2  flex">
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-            </ul>
-            <ul className="list-none mt-2  flex">
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-            </ul>
-            <ul className="list-none mt-2  flex">
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-              <li className="mx-4 ">
-                <a>transfer 1</a>
-              </li>
-            </ul>
+          <div className=" w-full flex items-center justify-evenly mb-10  h-3/5">
+            <div className=" flex flex-col justify-between items-center">
+              <p className="mx-10 h-1/5 w-32  break-words my-2">{eth} </p>
+            <Image className="rounded-md" src={"/img/eth.png"} width={32} height={32}></Image>
+            </div>
+            <div className=" flex flex-col justify-between items-center">
+              <p className="mx-10 h-2/5 w-16  break-words my-2">{coin} </p>
+              <Image src="/img/user.png" width={32} height={32}></Image>
+            </div>
+            <div className=" flex flex-col justify-between items-center">
+              <p className="mx-10 h-2/5 w-16  break-words my-2">{coin} </p>
+              <Image></Image>
+            </div>
           </div>
         </div>
       </div>
@@ -113,7 +69,10 @@ export default function login() {
         <Link className="bg-white bg-opacity-5 w-52 rounded-lg" href="/buy">
           Compre Isquisco
         </Link>
-        <Link className="bg-white bg-opacity-5 w-52 rounded-lg" href="/transfer">
+        <Link
+          className="bg-white bg-opacity-5 w-52 rounded-lg"
+          href="/transfer"
+        >
           Transfira Isquisco
         </Link>
       </div>
