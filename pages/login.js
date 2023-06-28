@@ -34,8 +34,8 @@ export default function login() {
           <Image
             className="rounded-full bg-white"
             src="/img/user.png"
-            width={200}
-            height={200}
+            width={210}
+            height={210}
           ></Image>
           <h1 className="text-xl">{account}</h1>
         </div>
