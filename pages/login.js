@@ -33,7 +33,7 @@ export default function login() {
         <div className="bg-white bg-opacity-10 w-2/5 h-3/4 flex justify-evenly flex-col items-center rounded-lg">
           <Image
             className="rounded-full bg-white"
-            src="/img/user.png"
+            src="/img/qrcode.png"
             width={210}
             height={210}
           ></Image>
