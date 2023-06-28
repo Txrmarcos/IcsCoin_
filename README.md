@@ -1,1 +1,1 @@
-ICSCoin_
+ICSCoin_ está sendo criada
